@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 import { Toast } from 'mint-ui'
 export default {
     data(){
@@ -32,7 +32,7 @@ export default {
     },
     methods: {
         getNewsList(){
-            axios.get('api/getnewslist').then(result=>{
+            this.$http.get('api/getnewslist').then(result=>{
                 // console.log(result)
                 if(result.data.status===0){
                     this.newslist=result.data.message

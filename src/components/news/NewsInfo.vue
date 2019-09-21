@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 import { Toast } from 'mint-ui'
 
 import comment from '../subcomponent/comment.vue'
@@ -35,7 +35,7 @@ export default {
     },
     methods: {
         getNewsInfo(){
-            axios.get('api/getnew/'+this.id).then(result=>{
+            this.$http.get('api/getnew/'+this.id).then(result=>{
                 if(result.data.status===0){
                     this.newsinfo=result.data.message[0];
                 }else{

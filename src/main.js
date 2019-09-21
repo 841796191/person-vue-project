@@ -20,9 +20,13 @@ Vue.filter('dateFormat', function(dataStr, pattern = "YYYY-MM-DD HH:mm:ss") {
 import axios from 'axios'
 //2.2安装 axios
 Vue.use(axios)
+Vue.prototype.$http = axios;
 
 //设置请求根路径
 axios.defaults.baseURL = 'http://www.liulongbin.top:3005'
+    // Vue.http.options.emulateJSON = true;
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
+
 
 //导入 mui 样式
 import './lib/mui/css/mui.min.css'
