@@ -47,7 +47,8 @@
 
 <style lang="scss" scoped>
     .app-container{
-        padding-top: 40px;
+        padding-top: 40px;//把内容挤下来，不然最前面的内容会被 header 挡住
+        padding-bottom: 50px;//把内容顶上去，不然最下面的内容会被 tarbar 挡住
         overflow-x: hidden;//隐藏页面转场时出现的滚动条
     }
 
