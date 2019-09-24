@@ -1,12 +1,8 @@
 <template>
     <div>
-        <mt-swipe :auto='4000'>
-            <mt-swipe-item v-for="item in lunbotuList" :key='item.id'>
-                <!-- src 的属性只是普通字符串，需要加 ：才能计算 item.img 里面的地址 -->
-                <img :src="item.img" alt="">
-            </mt-swipe-item>
-        </mt-swipe>
-
+        
+        <!-- 轮播图区域 -->
+        <swiper :lunbotuList="lunbotuList" :isfull="true"></swiper>
 
         <ul class="mui-table-view mui-grid-view mui-grid-9">
 		    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
@@ -15,12 +11,20 @@
 		        <div class="mui-media-body">新闻资讯</div>
                 </router-link>
             </li>
-		    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                <router-link to="/home/photolist">
 		        <img src="../../images/menu2.png" alt="">
-		        <div class="mui-media-body">图片分享</div></a></li>
-		    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		        <div class="mui-media-body">图片分享</div>
+                </router-link>
+            </li>
+
+		    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                <router-link to="/home/goodslist">
 		        <img src="../../images/menu3.png" alt="">
-		        <div class="mui-media-body">商品购买</div></a></li>
+		        <div class="mui-media-body">商品购买</div>
+                </router-link>
+            </li>
+
 		    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
 		        <img src="../../images/menu4.png" alt="">
 		        <div class="mui-media-body">留言反馈</div></a></li>
@@ -38,6 +42,9 @@
 <script>
 // import axios from 'axios'
 import { Toast } from 'mint-ui'
+//导入轮播图组件
+import swiper from '../subcomponent/swiper.vue'
+
 export default {
     data(){
         return {
@@ -59,30 +66,14 @@ export default {
             });
         }
     },
+
+    components:{
+        swiper
+    }
 }
 </script>
 
 <style lang="scss" scoped>
-.mint-swipe{
-    height: 200px;
-
-    .mint-swipe-item{//scss 语法，选中某个元素
-        &:nth-child(1){
-            background-color:red;
-        }
-        &:nth-child(2){
-            background-color:blue;
-        }
-        &:nth-child(3){
-            background-color:pink;
-        }
-
-        img{
-            width: 100%;
-            height: 100%;
-        }
-    }
-}
 
 .mui-grid-view.mui-grid-9{
     background-color: white;
