@@ -28,7 +28,7 @@ export default {
         //设置 max 的最新值，防止父组件异步操作传递过来 undefined
         'max':function(newVal,oldVal){
             //使用 mui 的 JS API设置 numbox
-            mui(".mui-numbox").numbox().setOption('max',mewVal)
+            mui(".mui-numbox").numbox().setOption('max',newVal)
         }
     }
 }

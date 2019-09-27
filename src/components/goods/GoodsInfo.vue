@@ -115,6 +115,18 @@ export default {
         addToShopCar(){
             //添加到购物车
             this.ballFlag=!this.ballFlag;
+
+            //{ id:商品id,count:购买数量,price:商品单价,selected:false }
+            //拼接出一个要保存到 store 中 car 数组里的商品信息对象
+            var goodsinfo={
+                id:this.id,
+                count:this.selectdCount,
+                price:this.goodsinfo.sell_price,
+                selected:true
+            };
+            //调用 store 中的 mutations 来将商品加入购物车
+            this.$store.commit("addToCar",goodsinfo)
+
         },
 
         beforeEnter(el){
@@ -153,7 +165,7 @@ export default {
         getSelectedCount(count){
             //当子组件把选中的数量传递给父组件的时候，把选中的值保存到 data 上
             this.selectdCount=count;
-            console.log("父组件拿到的数量值为："+this.selectdCount);
+            // console.log("父组件拿到的数量值为："+this.selectdCount);
         }
     },
 
